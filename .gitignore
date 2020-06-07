@@ -119,3 +119,4 @@ code/
 
 # Mac
 .DS_Store
+.vscode
