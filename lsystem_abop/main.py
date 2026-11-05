@@ -4,11 +4,13 @@ import sys
 import turtle
 
 SYMBOLS = "Ff+-^&\\/|$[]{G.}~!'%"
+COMMAND_ALIASES = str.maketrans({"−": "-", "∧": "^", "∼": "~", "′": "'"})
 
 
 def remove_non_commands(text):
     output = ""
-    for i in tuple(text):
+    # Preserve the command symbols shown in the README before filtering.
+    for i in tuple(text.translate(COMMAND_ALIASES)):
         if i in SYMBOLS + string.digits:
             output += i
     return output
